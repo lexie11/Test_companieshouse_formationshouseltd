@@ -21,26 +21,21 @@ for company in name:
 #Find all the descriptive lists on the page using css selector
 lists = root.cssselect('dl')
 
-for companylist in lists:
-  print companylist.text
-  record = { "companylist" : companylist.text } # column name and value
-  scraperwiki.sqlite.save(["companylist"], record)
+ # Find a second thing on the page using css selectors
+companyinfotypes = root.cssselect('dt')
 
-#  # Find a second thing on the page using css selectors
-# companyinfotypes = root.cssselect('dt')
-
-# for infotypenames in companyinfotypes:
-#   print infotypenames.text
-#   record = { "infotypenames" : infotypenames.text } # column name and value
-#   scraperwiki.sqlite.save(["infotypenames"], record) # save the records one by one
+for infotypenames in companyinfotypes:
+  print infotypenames.text
+  record = { "infotypenames" : infotypenames.text } # column name and value
+  scraperwiki.sqlite.save(["infotypenames"], record) # save the records one by one
   
-# # Find a third thing on the page using css selectors
-# actualinfo = root.cssselect('dd')
+# Find a third thing on the page using css selectors
+actualinfo = root.cssselect('dd')
 
-# for companyinfo in actualinfo:
-#   print companyinfo.text
-#   record = { "companyinfo" : companyinfo.text } # column name and value
-#   scraperwiki.sqlite.save(["companyinfo"], record) # save the records one by one
+for companyinfo in actualinfo:
+  print companyinfo.text
+  record = { "companyinfo" : companyinfo.text } # column name and value
+  scraperwiki.sqlite.save(["companyinfo"], record) # save the records one by one
 
 
 # # # Write out to the sqlite database using scraperwiki library
