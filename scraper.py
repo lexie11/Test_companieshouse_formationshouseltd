@@ -19,7 +19,7 @@ for company in name:
   print company.text
 
 # # Find a second thing on the page using css selectors
-address = root.cssselect('dd')
+address = root.cssselect('dd[0]')
 
 for companyaddress in address:
   print companyaddress.text
