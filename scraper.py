@@ -8,7 +8,7 @@ import lxml.html
 
 html = scraperwiki.scrape("https://beta.companieshouse.gov.uk/company/04503188")
 
-# Turn html into a string and put in variable root
+# Turn html into a lxml object using "fromstring" function from lxml.html library, and put in variable root
 root = lxml.html.fromstring(html)
 
 # # Find something on the page using css selectors
