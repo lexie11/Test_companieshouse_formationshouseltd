@@ -18,11 +18,17 @@ for company in name:
 #   print lxml.html.tostring(title)
   print company.text
 
-# # Find a second thing on the page using css selectors
-address = root.cssselect('dd')
+ # Find a second thing on the page using css selectors
+companyinfotypes = root.cssselect('dt')
 
-for companyaddress in address:
-  print companyaddress.text
+for infotypenames in companyinfotypes:
+  print infotypenames.text
+  
+# Find a third thing on the page using css selectors
+actualinfo = root.cssselect('dd')
+
+for companyinfo in actualinfo:
+  print companyinfo.text
 
 # # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
