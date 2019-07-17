@@ -8,15 +8,21 @@ import lxml.html
 
 html = scraperwiki.scrape("https://beta.companieshouse.gov.uk/company/04503188")
 
-# # Find something on the page using css selectors
+# Turn html into a string and put in variable root
 root = lxml.html.fromstring(html)
+
+# # Find something on the page using css selectors
 name = root.cssselect('title')
 
 for company in name:
 #   print lxml.html.tostring(title)
   print company.text
 
+# # Find a second thing on the page using css selectors
+address = root.cssselect('dd')
 
+for companyaddress in address:
+  print companyaddress.text
 
 # # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
