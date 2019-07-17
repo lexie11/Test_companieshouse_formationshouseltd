@@ -23,6 +23,8 @@ companyinfotypes = root.cssselect('dt')
 
 for infotypenames in companyinfotypes:
   print infotypenames.text
+  record = { "infotypenames" : infotypenames.text } # column name and value
+  scraperwiki.sqlite.save(["infotypenames"], record) # save the records one by one
   
 # Find a third thing on the page using css selectors
 actualinfo = root.cssselect('dd')
@@ -35,6 +37,7 @@ for companyinfo in actualinfo:
 # #
 # # # An arbitrary query against the database
 # scraperwiki.sql.select("* from data where 'name'='peter'")
+
 
 # # You don't have to do things with the ScraperWiki and lxml libraries.
 # # You can use whatever libraries you want: https://morph.io/documentation/python
