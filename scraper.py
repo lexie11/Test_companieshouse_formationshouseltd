@@ -19,7 +19,7 @@ for company in name:
   print company.text
   
 #Find all the descriptive lists on the page using css selector
-lists = root.cssselect('dl')
+# lists = root.cssselect('dl')
 
  # Find a second thing on the page using css selectors
 companyinfotypes = root.cssselect('dt')
@@ -34,7 +34,7 @@ actualinfo = root.cssselect('dd')
 
 for companyinfo in actualinfo:
   print companyinfo.text
-  record = { "companyinfo" : companyinfo.text } # column name and value
+  record = { "companyinfo" : companyinfo.text } # column name (unique key) and value
   scraperwiki.sqlite.save(["companyinfo"], record) # save the records one by one
 
 
