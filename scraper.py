@@ -31,6 +31,9 @@ actualinfo = root.cssselect('dd')
 
 for companyinfo in actualinfo:
   print companyinfo.text
+  record = { "companyinfo" : companyinfo.text } # column name and value
+  scraperwiki.sqlite.save(["companyinfo"], record) # save the records one by one
+
 
 # # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
