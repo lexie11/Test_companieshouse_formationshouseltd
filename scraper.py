@@ -13,7 +13,7 @@ root = lxml.html.fromstring(html)
 name = root.cssselect('title')
 
 for title in name:
-  print lxml.html.tostring(title)
+#   print lxml.html.tostring(title)
   print title.text
 
 
