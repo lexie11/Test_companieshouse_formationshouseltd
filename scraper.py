@@ -23,7 +23,7 @@ lists = root.cssselect('dl')
 
 for companylist in lists:
   print companylist.text
-  record { "companylist" : companylist.text } # column name and value
+  record = { "companylist" : companylist.text } # column name and value
   scraperwiki.sqlite.save(["companylist"], record)
 
 #  # Find a second thing on the page using css selectors
